@@ -1,0 +1,11 @@
+package com.example.shopcart.ui.navigation
+
+sealed class Screen(val route: String) {
+    object Login : Screen("login")
+    object Home : Screen("home")
+    object Detail : Screen("detail/{productId}") {
+        fun createRoute(productId: Int) = "detail/$productId"
+    }
+    object Cart : Screen("cart")
+    object Profile : Screen("profile") // Form screen
+}
